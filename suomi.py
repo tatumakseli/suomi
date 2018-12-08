@@ -22,7 +22,7 @@ class Translate:
 			bigger = False
 			correct_index = None
 			previous_index = None
-			for key, value in self.front.items():
+			for key, value in self.partitive.items():
 				if len(str(self.whole_int)) >= key:
 					correct_index = key
 					break
@@ -48,7 +48,7 @@ class Translate:
 	def threedigit(self, etu, correct_index, under_three_digit=True):
 		etu_str = ""
 		if under_three_digit != False:
-			ending = self.front[correct_index]
+			ending = self.partitive[correct_index]
 		else:
 			ending = ""
 		if len(etu) == 3:
@@ -58,7 +58,7 @@ class Translate:
 		if len(etu) == 1:
 			if str(etu) == "1":
 				if under_three_digit == True:
-					ending = self.front_one[correct_index]
+					ending = self.nominative[correct_index]
 					return ending
 			etu_str += Translate.one(self, etu, etu_str)
 			
@@ -97,7 +97,7 @@ class Translate:
 
 
 	def convert(self):
-		self.front = {
+		self.partitive = {
 		13: "biljoonaa",
 		10: "miljardia",
 		7: "miljoonaa",
@@ -105,7 +105,7 @@ class Translate:
 		3: "sataa",	
 		}
 
-		self.front_one = {
+		self.nominative = {
 		13: "biljoona",
 		10: "miljardi",
 		7: "miljoona",
